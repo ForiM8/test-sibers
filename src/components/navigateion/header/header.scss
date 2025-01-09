@@ -1,0 +1,73 @@
+.headerContainer {
+    position: relative;
+    width: 133px;
+    height: 100%;
+    background-color: rgba(110, 0, 255, 1);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 37px;
+
+    &__avatar {
+        margin: 0 auto;
+        width: 78px;
+        height: 78px;
+        margin-top: 32px;
+        margin-bottom: 74px;
+        border-radius: 50%;
+        border: 4px solid rgba(83, 34, 188, 1);
+        background-image: url('../../../../public/images/avatar.png');
+    }
+
+    &__routeContainer {
+        margin: 0 auto;
+        width: 100%;
+        height: auto;
+        // background-color: aqua;
+
+        &-home {
+            width: 100%;
+            height: 98px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url('../../../../public/svg/home.svg');
+        }
+
+        &-chats {
+            width: 126px;
+            height: 98px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url('../../../../public/svg/chats.svg');
+            background-color: rgba(97, 45, 209, 0.9);
+            border-right: 7px solid rgba(243, 181, 89, 1);
+        }
+
+        &-notification {
+            width: 100%;
+            height: 98px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url('../../../../public/svg/notification.svg');
+        }
+
+        &-settings {
+            width: 100%;
+            height: 98px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url('../../../../public/svg/settings.svg');
+        }
+    }
+
+    &__exit {
+        position: absolute;
+        left: 40px;
+        bottom: 40px;
+        width: 54px;
+        height: 54px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url('../../../../public/svg/exit.svg');
+    }
+}

@@ -1,0 +1,34 @@
+.userListContainer{
+    display: flex;
+    flex-direction: column;
+    width: 550px;
+    min-height: 286px;
+    height: auto;
+    background-color: #ffff;
+    border-radius: 25px;
+    &__header {
+        margin-top: 12px;
+        width: 90%;
+        margin-left: 24px;
+        display: flex;
+        justify-content: space-between;
+    
+        &-header {
+            font-family: Roboto;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 15px;
+        }
+
+        &-close{
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: none;
+            border: none;
+        }
+    }
+}

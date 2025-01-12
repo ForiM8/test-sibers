@@ -285,11 +285,9 @@ export const Main = () => {
                                                     />
                                                 )
                                             } else if (message.status === 'delete') {
-                                                const deleteUser = message.text
-                                                console.log('deleteUser', deleteUser)
                                                 return (
                                                     <div className='deleteContainer'>
-                                                        <div className="deleteContainer-text">user {deleteUser} deleted</div>
+                                                        <div className="deleteContainer-text">user {message.text} deleted</div>
                                                     </div>
                                                 )
                                             } else {

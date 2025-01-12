@@ -153,8 +153,9 @@ export const Main = () => {
 
     //added emoji table
     const onEmojiClick = (emojiObject) => {
-        setInput(prev => prev + emojiObject.emoji)
+        setInput(prev => prev + emojiObject.emoji+' ')
         setOpenEmoji(prev => !prev)
+        setMessageTrue(prev => !prev)
     }
     // finally 
     return (

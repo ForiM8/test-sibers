@@ -86,7 +86,7 @@ export const Main = () => {
                 text: textList[randomText],
                 lastTimeMessages: Date(),
             }
-            setTimeout(() => {setMessageDATA([...messageDATA, randomMessage])}, 1000) //added random message with 
+            setTimeout(() => { setMessageDATA([...messageDATA, randomMessage]) }, 1000) //added random message with 
             setMessageSent(false)
         }
     }, [messageSent, usersDATA])
@@ -153,7 +153,7 @@ export const Main = () => {
 
     //added emoji table
     const onEmojiClick = (emojiObject) => {
-        setInput(prev => prev + emojiObject.emoji+' ')
+        setInput(prev => prev + emojiObject.emoji)
         setOpenEmoji(prev => !prev)
         setMessageTrue(prev => !prev)
     }
@@ -283,6 +283,14 @@ export const Main = () => {
                                                         key={message.id}
                                                         lastTimeMessages={formatDate(message.lastTimeMessages)}
                                                     />
+                                                )
+                                            } else if (message.status === 'delete') {
+                                                const deleteUser = message.text
+                                                console.log('deleteUser', deleteUser)
+                                                return (
+                                                    <div className='deleteContainer'>
+                                                        <div className="deleteContainer-text">user {deleteUser} deleted</div>
+                                                    </div>
                                                 )
                                             } else {
                                                 return (

@@ -163,7 +163,7 @@
                             color: rgba(124, 124, 124, 1);
                         }
 
-                        &-delete{
+                        &-delete {
                             width: 30px;
                             height: 30px;
                             background-image: url('../../../public/images/delete.png');
@@ -637,6 +637,26 @@
         margin-left: 28px;
         font-family: Roboto;
         font-size: 30px;
+        font-weight: 700;
+        line-height: 35.16px;
+        letter-spacing: 0.05em;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        color: rgba(48, 48, 48, 1);
+    }
+}
+
+.deleteContainer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-text{
+        margin-left: 28px;
+        font-family: Roboto;
+        font-size: 20px;
         font-weight: 700;
         line-height: 35.16px;
         letter-spacing: 0.05em;

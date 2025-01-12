@@ -9,17 +9,27 @@ export const UserList = ({
     admin
 }) => {
 
-    const { usersDATA } = useUser()
+    const { usersDATA, messageDATA, setMessageDATA } = useUser()
     const { setModalActive } = useModalRegister()
     const [userDATAInList, setUserDATAInList] = useState([])
+    const [deleteUser, setDeleteUser] = useState([])
 
     useEffect(() => {
         setUserDATAInList(usersDATA)
     }, [])
 
+    //function removing user and adding message about deletion
     const removePeople = (id) => {
-        setUserDATAInList((prev) => prev.filter((user) => user.id !== id));
+        const userToDelete = userDATAInList.find((user) => user.id === id)
+        setDeleteUser(userToDelete)
+        const newMessage = {
+            text: userToDelete.name,
+            status: 'delete'
+        };
+        setMessageDATA([...messageDATA, newMessage])
+        setUserDATAInList((prev) => prev.filter((user) => user.id !== id))
     };
+    // finally 
 
     // function to formate date from Unix timestamp
     const formatDate = (timestamp) => {
@@ -52,21 +62,21 @@ export const UserList = ({
             </div>
 
             <div className="userListContainer__main">
-                
-                    {userDATAInList.map((user) => {
-                        if (user.name) {
-                            return (
-                                <PeopleSearchList
-                                    {...user}
-                                    key={user.id}
-                                    admin={admin}
-                                    onRemove={() => removePeople(user.id)}
-                                    lastTimeMessages={formatDate(user.lastTimeMessages)}
-                                />
-                            );
-                        }
-                    })}
-               
+
+                {userDATAInList.map((user) => {
+                    if (user.name) {
+                        return (
+                            <PeopleSearchList
+                                {...user}
+                                key={user.id}
+                                admin={admin}
+                                onRemove={() => removePeople(user.id)}
+                                lastTimeMessages={formatDate(user.lastTimeMessages)}
+                            />
+                        );
+                    }
+                })}
+
             </div>
 
 

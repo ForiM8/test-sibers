@@ -32,7 +32,7 @@ export const CreateGroup = (props) => {
   // adding new group
   const onSubmit = (data) => {
     const length = groupsDATA.length
-    setGroupsDATA((prev) => [...prev, { ...data, id: length, name: data.name, lastText:"",  avatar: data.avatar, creator: globalUser}])
+    setGroupsDATA((prev) => [...prev, { ...data, id: length, name: data.name, lastText:"",  avatar: data.avatar, creator: globalUser, text:[]}])
     onClose()
   }
   // finally

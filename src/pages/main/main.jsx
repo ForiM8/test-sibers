@@ -14,7 +14,7 @@ import EmojiPicker from 'emoji-picker-react';
 
 export const Main = () => {
     const { modalActive, setModalActive } = useModalRegister()
-    const { usersDATA, setUsersDATA, groupsDATA, messageDATA, setMessageDATA } = useUser()
+    const { usersDATA, setGroupsDATA, groupsDATA} = useUser()
     const [messageTrue, setMessageTrue] = useState(false)
     const [input, setInput] = useState('')
     const [groups, setGroups] = useState([])
@@ -56,7 +56,7 @@ export const Main = () => {
 
     useEffect(() => {
         scrollToBottom()
-    }, [messageDATA, idGroup])
+    }, [groupsDATA, idGroup])
     // finally 
 
     // function to add a new message
@@ -65,13 +65,17 @@ export const Main = () => {
             const newMessage = {
                 text: input,
                 lastTimeMessages: Date(),
-            }
-            setMessageDATA([...messageDATA, newMessage])
-            setInput('')
-            setMessageTrue(false)
-            setMessageSent(true)
+            };
+            setGroupsDATA((prev) =>
+                prev.map((group) =>
+                    group.id == idGroup ? { ...group, text: [...group.text, newMessage] }: group
+                )
+            )
+            setInput('');
+            setMessageTrue(false);
+            setMessageSent(true);
         }
-    }
+    };
     // finally 
 
     //generator random message
@@ -86,7 +90,11 @@ export const Main = () => {
                 text: textList[randomText],
                 lastTimeMessages: Date(),
             }
-            setTimeout(() => { setMessageDATA([...messageDATA, randomMessage]) }, 1000) //added random message with 
+            setTimeout(() => { setGroupsDATA((prev) =>
+                prev.map((group) =>
+                    group.id === idGroup ? { ...group, text: [...group.text, randomMessage] }: group
+                )
+            ) }, 1000) //added random message with random name and text 
             setMessageSent(false)
         }
     }, [messageSent, usersDATA])
@@ -275,7 +283,7 @@ export const Main = () => {
                                         onEmojiClick={onEmojiClick}
                                     />
                                     <div className="mainContainer__right__mainMessenger">
-                                        {messageDATA.map((message) => {
+                                        {group.text.map((message) => {
                                             if (message.name) {
                                                 return (
                                                     <MessageСompanion
